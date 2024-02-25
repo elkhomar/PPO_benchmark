@@ -1,3 +1,4 @@
+
 import os
 import gymnasium as gym
 import numpy as np
@@ -12,7 +13,6 @@ from wandb.integration.sb3 import WandbCallback
 import hydra
 from hydra.utils import instantiate
 from omegaconf import DictConfig
-
 
 def make_env(env_id: str, rank: int, seed: int = 1):
     """
@@ -37,10 +37,8 @@ os.makedirs(log_dir, exist_ok=True)
 # Create the callback: check every 1000 steps
 callback = SaveOnBestTrainingRewardCallback(check_freq=1000, log_dir=log_dir)
 
-
 @hydra.main(config_path=".", config_name="train_config")
 def main(cfg: DictConfig) -> None:
-
     # Setting up the configs
     env_name = cfg.env.env_name
     timesteps = cfg.env.total_timesteps
@@ -75,7 +73,7 @@ def main(cfg: DictConfig) -> None:
     )
 
     # Instantiation of the model
-    model = instantiate(config=cfg.algorithm, env=env, verbose=1, tensorboard_log=f"runs/{run.id}")   
+    model = instantiate(config=algorithm, env=env, verbose=1, tensorboard_log=f"runs/{run.id}")   
 
     # Training the model
     model.learn(total_timesteps=int(timesteps), callback=[WandbCallback(
@@ -85,3 +83,4 @@ def main(cfg: DictConfig) -> None:
 
 if __name__ == "__main__":
     main()
+

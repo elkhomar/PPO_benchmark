@@ -1,13 +1,14 @@
 env: 
-  env_name: "Humanoid-v4" # "Pendulum-v1", "HalfCheetah-v4"
+  env_name: "HalfCheetah-v4" # "Pendulum-v1", "HalfCheetah-v4"
   total_timesteps: 1000000
   num_cpu: 1
 
 algorithm:
   _target_: "stable_baselines3.PPO" # stable_baselines3 : PPO, A2C, SAC, TD3 || sb3_contrib : TRPO, TQC
   policy: "MlpPolicy"
+  ent_coef: 0.001
 
 logging:
-  group: "PPO Humanoid"
+  group: "Halfcheetah entropy comparison"
 
 seed: 10
