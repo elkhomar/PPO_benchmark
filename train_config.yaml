@@ -6,7 +6,6 @@ env:
 algorithm:
   _target_: "stable_baselines3.PPO" # stable_baselines3 : PPO, A2C, SAC, TD3 || sb3_contrib : TRPO, TQC
   policy: "MlpPolicy"
-  ent_coef: 0.001
 
 logging:
   group: "Halfcheetah entropy comparison"
