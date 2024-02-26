@@ -4,8 +4,6 @@ The goal of this project is to provide a benchmark of various RL algorithms, PPO
 
 - The parameters of the experiments such as the environnement and the algorithm can be specified in the .yaml config file and are independent from the code
 - The logging is done through wandb and shows video snippets of rollouts at different moments in the training
-- 
-[![PPO on half-cheetah-v4](https://i.stack.imgur.com/Vp2cE.png)](https://youtube.com/shorts/FfuC8cqK5W0)
 
 ## Files :
 - train.py : where all the training code happens, use "python train.py" to train an agent
